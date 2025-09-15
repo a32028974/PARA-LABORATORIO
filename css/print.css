@@ -4,65 +4,65 @@
 }
 
 *{ box-sizing:border-box; }
-body{ margin:0; font:10.5pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
+body{ margin:0; font:10pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
 
 .app{ max-width:1100px; margin:16px auto; padding:12px; }
 .controls{ display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px; }
 .field{ display:flex; flex-direction:column; gap:6px; }
-.controls input{ padding:6px 10px; font-size:11pt; }
-.controls button{ padding:8px 12px; font-size:11pt; cursor:pointer; }
+.controls input{ padding:6px 10px; font-size:10.5pt; }
+.controls button{ padding:8px 12px; font-size:10.5pt; cursor:pointer; }
 
-/* ==== Bloque 200×120 (compacto) ==== */
+/* ==== Bloque 200×120 ==== */
 .ticket{
   width: var(--block-w);
   height: var(--block-h);
   margin: 0 auto;
-  padding: 6mm;                 /* ↓ antes: 8–10mm */
+  padding: 5mm;                 /* ↓ */
   border: 1px solid #ddd;
   background:#fff;
   display:flex;
   flex-direction:column;
-  gap: 5mm;                     /* ↓ antes: 6–8mm */
-  overflow: hidden;             /* evita “asomar” fuera del borde */
+  gap: 3.5mm;                   /* ↓ */
+  overflow: hidden;
 }
 
-/* Encabezado + logo (compacto) */
+/* Encabezado + logo */
 .head{
   display:flex;
   align-items:center;
-  gap:6mm;                      /* ↓ */
-  padding-bottom:2mm;           /* ↓ */
+  gap:5mm;                      /* ↓ */
+  padding-bottom:2mm;
   border-bottom:1px solid #ddd;
 }
 .logo{
-  width: 20mm;                  /* ↓ antes: 26mm */
+  width: 18mm;                  /* ↓ */
   height: auto;
   display:block;
 }
-.brand h1{ font-size:14pt; margin:0; line-height:1.05; }
-.brand .sub{ color:#1f4aa8; font-weight:600; margin-top:1px; font-size:10pt; }
-.nroTrabajo{ margin-top:2px; font-size:11pt; font-weight:700; color:#000; }
+.brand h1{ font-size:13pt; margin:0; line-height:1.05; }
+.brand .sub{ color:#1f4aa8; font-weight:600; margin-top:1px; font-size:9.5pt; }
+.nroTrabajo{ margin-top:2px; font-size:10.5pt; font-weight:700; color:#000; }
 
-/* Filas e inputs (compacto) */
-.row{ display:flex; gap:6mm; align-items:center; }
+/* Filas e inputs */
+.row{ display:flex; gap:5mm; align-items:center; }
 .row.two > label{ flex:1; }
-.row > label{ flex:1; display:flex; flex-direction:column; gap:3px; }
+.row > label{ flex:1; display:flex; flex-direction:column; gap:2px; }
 .row input{
-  padding:6px 10px;             /* ↓ */
-  font-size:10.5pt;             /* ↓ */
+  padding:5px 8px;              /* ↓ */
+  font-size:10pt;               /* ↓ */
   border:1px solid #d0d5dd;
-  border-radius:8px;            /* ↓ */
+  border-radius:7px;            /* ↓ */
 }
 
-/* RX más apretado y de ancho fijo razonable */
-.rx{ display:flex; flex-direction:column; gap:4mm; }    /* ↓ */
-.rx-row{ display:flex; gap:5mm; flex-wrap:wrap; }       /* ↓ */
-.rx-item{ display:flex; flex-direction:column; gap:3px; width:105px; } /* ↓ */
+/* RX más compacto */
+.rx{ display:flex; flex-direction:column; gap:3mm; }    /* ↓ */
+.rx-row{ display:flex; gap:4mm; flex-wrap:wrap; }
+.rx-item{ display:flex; flex-direction:column; gap:2px; width:95px; } /* ↓ */
 .rx-item input{
-  padding:6px 8px;              /* ↓ */
-  font-size:10.5pt;
+  padding:5px 7px;              /* ↓ */
+  font-size:10pt;
   border:1px solid #d0d5dd;
-  border-radius:8px;
+  border-radius:7px;
 }
 
 /* Impresión */
@@ -72,6 +72,7 @@ body{ margin:0; font:10.5pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Rob
   body{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .ticket{ border:0; }
 }
+
 
 /* ===== Overlay de búsqueda (igual que te pasé) ===== */
 .overlay{
