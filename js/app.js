@@ -24,6 +24,8 @@ function render(item){
   setVal('t-narmazon', item.nArmazon);
   setVal('t-detalle-armazon', item.detalleArmazon);
   setVal('t-apenom', item.apellidoNombre);
+  const elNro = document.getElementById('t-nro');
+  if(elNro) elNro.textContent = item.nroTrabajo || '';
   $('btnImprimir').disabled = false;
 }
 
