@@ -31,7 +31,7 @@ function render(item){
 
 function clearUI(){
   ['t-fecha-encarga','t-fecha-retira','t-tipo-cristal','t-od-esf','t-od-cil','t-od-eje',
-   't-oi-esf','t-oi-cil','t-oi-eje','t-narmazon','t-detalle-armazon','t-apenom'
+   't-oi-esf','t-oi-cil','t-oi-eje','t-narmazon','t-detalle-armazon','t-apenom','t-nro'
   ].forEach(id=> setVal(id,''));
   $('btnImprimir').disabled = true;
 }
