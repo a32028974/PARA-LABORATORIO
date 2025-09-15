@@ -4,6 +4,9 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbzcOff6VsMbgE2oWf-_DWTT
 const $ = (id) => document.getElementById(id);
 const setVal = (id, v) => { const el = $(id); if (el) el.value = (v ?? '').toString(); };
 
+function showOverlay(){ $('overlay').classList.remove('hidden'); }
+function hideOverlay(){ $('overlay').classList.add('hidden'); }
+
 async function fetchByJob(nro){
   const url = `${API_URL}?op=getByJob&nro=${encodeURIComponent(nro)}`;
   const res = await fetch(url);
@@ -24,7 +27,7 @@ function render(item){
   setVal('t-narmazon', item.nArmazon);
   setVal('t-detalle-armazon', item.detalleArmazon);
   setVal('t-apenom', item.apellidoNombre);
-  const elNro = document.getElementById('t-nro');
+  const elNro = $('t-nro');
   if(elNro) elNro.textContent = item.nroTrabajo || '';
   $('btnImprimir').disabled = false;
 }
@@ -36,19 +39,32 @@ function clearUI(){
   $('btnImprimir').disabled = true;
 }
 
+async function buscarTrabajo(){
+  clearUI();
+  const nro = $('nro').value.trim();
+  if(!nro){ alert('Ingresá un N° de trabajo (columna D)'); return; }
+  showOverlay();
+  try{
+    const json = await fetchByJob(nro);
+    if(!json.ok || !json.item){ alert('No se encontró el trabajo'); return; }
+    render(json.item);
+  }catch(err){
+    console.error(err);
+    alert('Error consultando la planilla');
+  }finally{
+    hideOverlay();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', ()=>{
-  $('btnBuscar').addEventListener('click', async ()=>{
-    clearUI();
-    const nro = $('nro').value.trim();
-    if(!nro){ alert('Ingresá un N° de trabajo (columna D)'); return; }
-    try{
-      const json = await fetchByJob(nro);
-      if(!json.ok || !json.item){ alert('No se encontró el trabajo'); return; }
-      render(json.item);
-    }catch(err){
-      console.error(err); alert('Error consultando la planilla');
+  $('btnBuscar').addEventListener('click', buscarTrabajo);
+  $('btnImprimir').addEventListener('click', ()=> window.print());
+
+  // Buscar con ENTER
+  $('nro').addEventListener('keydown', (ev)=>{
+    if(ev.key === 'Enter'){
+      ev.preventDefault();
+      buscarTrabajo();
     }
   });
-
-  $('btnImprimir').addEventListener('click', ()=> window.print());
 });
