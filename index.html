@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Óptica Cristal • Ficha 200×150</title>
+  <title>Óptica Cristal • Ficha 200×120</title>
   <link rel="stylesheet" href="css/print.css">
 </head>
 <body>
   <main class="app">
+    <!-- Controles (no imprimen) -->
     <section class="controls">
-      <div class="brand">
-        <h1>ÓPTICA CRISTAL</h1>
-        <div class="sub">San Miguel</div>
-      </div>
-
       <label class="field">
         N° de trabajo
         <input id="nro" type="text" inputmode="numeric" placeholder="Ej: 10212798">
@@ -22,8 +18,17 @@
       <button id="btnImprimir" disabled>Imprimir</button>
     </section>
 
-    <!-- Bloque 200mm × 150mm -->
+    <!-- Bloque de 200mm × 120mm (imprime) -->
     <section id="ticket" class="ticket">
+      <header class="head">
+        <!-- Logo impreso -->
+        <img class="logo" src="logo.png" alt="Óptica Cristal">
+        <div class="brand">
+          <h1>ÓPTICA CRISTAL</h1>
+          <div class="sub">San Miguel</div>
+        </div>
+      </header>
+
       <div class="row two">
         <label>Fecha que encarga <input id="t-fecha-encarga" disabled></label>
         <label>Fecha que retira (estimada) <input id="t-fecha-retira" disabled></label>
@@ -38,30 +43,24 @@
       <div class="rx">
         <div class="rx-row">
           <div class="rx-item">
-            <span>OD ESF</span>
-            <input id="t-od-esf" disabled>
+            <span>OD ESF</span><input id="t-od-esf" disabled>
           </div>
           <div class="rx-item">
-            <span>OD CIL</span>
-            <input id="t-od-cil" disabled>
+            <span>OD CIL</span><input id="t-od-cil" disabled>
           </div>
           <div class="rx-item">
-            <span>OD EJE</span>
-            <input id="t-od-eje" disabled>
+            <span>OD EJE</span><input id="t-od-eje" disabled>
           </div>
         </div>
         <div class="rx-row">
           <div class="rx-item">
-            <span>OI ESF</span>
-            <input id="t-oi-esf" disabled>
+            <span>OI ESF</span><input id="t-oi-esf" disabled>
           </div>
           <div class="rx-item">
-            <span>OI CIL</span>
-            <input id="t-oi-cil" disabled>
+            <span>OI CIL</span><input id="t-oi-cil" disabled>
           </div>
           <div class="rx-item">
-            <span>OI EJE</span>
-            <input id="t-oi-eje" disabled>
+            <span>OI EJE</span><input id="t-oi-eje" disabled>
           </div>
         </div>
       </div>
