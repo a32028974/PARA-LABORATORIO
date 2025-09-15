@@ -1,0 +1,41 @@
+:root{ --block-w:200mm; --block-h:150mm; }
+*{ box-sizing:border-box; }
+body{ margin:0; font:12pt/1.25 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
+
+.app{ max-width:1100px; margin:16px auto; padding:12px; }
+.controls{ display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px; }
+.brand h1{ font-size:18pt; margin:0; }
+.brand .sub{ color:#1f4aa8; margin-top:2px; font-weight:600; }
+
+.field{ display:flex; flex-direction:column; gap:6px; }
+.controls input{ padding:8px 10px; font-size:12pt; }
+.controls button{ padding:10px 14px; font-size:12pt; cursor:pointer; }
+
+.ticket{
+  width: var(--block-w);
+  height: var(--block-h);
+  margin: 0 auto;
+  padding: 10mm;
+  border: 1px solid #ddd;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  gap: 8mm;
+}
+
+.row{ display:flex; gap:10mm; align-items:center; }
+.row.two > label{ flex:1; }
+.row > label{ flex:1; display:flex; flex-direction:column; gap:4px; }
+.row input{ padding:8px 10px; font-size:12pt; border:1px solid #d0d5dd; border-radius:10px; }
+
+.rx{ display:flex; flex-direction:column; gap:6mm; }
+.rx-row{ display:flex; gap:8mm; }
+.rx-item{ display:flex; flex-direction:column; gap:4px; width:140px; }
+.rx-item input{ padding:8px 10px; font-size:12pt; border:1px solid #d0d5dd; border-radius:10px; }
+
+@page{ size:A4; margin:8mm; }
+@media print{
+  .controls{ display:none !important; }
+  body{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .ticket{ border:0; }
+}
