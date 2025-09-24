@@ -10,7 +10,9 @@ body{ margin:0; font:10pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Robot
 .controls{ display:flex; gap:12px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px; }
 .field{ display:flex; flex-direction:column; gap:6px; }
 .controls input{ padding:6px 10px; font-size:10.5pt; }
-.controls button{ padding:8px 12px; font-size:10.5pt; cursor:pointer; }
+.controls button, .controls a.button{ padding:8px 12px; font-size:10.5pt; cursor:pointer; border:1px solid #d0d5dd; background:#f5f7fb; border-radius:8px; text-decoration:none; color:#111; }
+.controls .minor{ background:#eef2ff; }
+.controls .danger{ background:#ffe8e8; }
 
 /* ==== Bloque 200×120 ==== */
 .ticket{
@@ -73,7 +75,6 @@ body{ margin:0; font:10pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Robot
   .ticket{ border:0; }
 }
 
-
 /* ===== Overlay de búsqueda (igual que te pasé) ===== */
 .overlay{
   position: fixed;
@@ -97,3 +98,13 @@ body{ margin:0; font:10pt/1.2 "Inter", system-ui, -apple-system, Segoe UI, Robot
   animation: spin 1s linear infinite;
 }
 @keyframes spin{ 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
+
+/* ===== Modal de escaneo ===== */
+.scan-modal{ position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:10000; }
+.scan-modal.open{ display:flex; }
+.scan-box{ background:#0b1220; color:#fff; width:min(640px, 96vw); border-radius:12px; padding:12px; display:flex; flex-direction:column; gap:10px; }
+.scan-head{ display:flex; align-items:center; justify-content:space-between; }
+.scan-head h3{ margin:0; font-size:14pt; }
+.scan-close{ border:0; background:#222; color:#fff; border-radius:8px; padding:6px 10px; cursor:pointer; }
+.scan-video{ width:100%; aspect-ratio:16/9; background:#000; border-radius:10px; }
+.scan-hint{ font-size:10pt; color:#9fb0d6; }
