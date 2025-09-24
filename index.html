@@ -5,14 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Para virtual</title>
   <link rel="stylesheet" href="css/print.css">
-  <!-- Overlay de búsqueda -->
-<div id="overlay" class="overlay hidden">
-  <div class="spinner"></div>
-  <p>Buscando…</p>
-</div>
-
 </head>
 <body>
+  <!-- Overlay de búsqueda -->
+  <div id="overlay" class="overlay hidden">
+    <div class="spinner"></div>
+    <p>Buscando…</p>
+  </div>
+
+  <!-- Modal de escaneo -->
+  <div id="scanModal" class="scan-modal">
+    <div id="scanBox" class="scan-box">
+      <div class="scan-head">
+        <h3>Escanear código de barras</h3>
+        <button id="scanClose" class="scan-close">Cerrar</button>
+      </div>
+      <video id="scanVideo" class="scan-video" playsinline muted></video>
+      <div id="scanHint" class="scan-hint">Apuntá al código hasta que se detecte automáticamente.</div>
+    </div>
+  </div>
+
   <main class="app">
     <!-- Controles (no imprimen) -->
     <section class="controls">
@@ -20,22 +32,27 @@
         N° de trabajo
         <input id="nro" type="text" inputmode="numeric" placeholder="Ej: 10212798">
       </label>
+
       <button id="btnBuscar">Buscar</button>
-      <button id="btnImprimir" disabled>Imprimir</button>
+      <button id="btnImprimir" class="minor" disabled>Imprimir</button>
+
+      <!-- NUEVO: Escanear -->
+      <button id="btnScan">Escanear con cámara</button>
+      <a id="btnScanApp" class="button" href="#">Abrir app de escaneo</a>
     </section>
 
     <!-- Bloque de 200mm × 120mm (imprime) -->
     <section id="ticket" class="ticket">
       <header class="head">
-  <!-- Logo -->
-  <img class="logo" src="logo.png" alt="Óptica Cristal">
-  <div class="brand">
-    <h1>ÓPTICA CRISTAL</h1>
-    <div class="sub">San Miguel v4</div>
-    <!-- NUEVO: número de trabajo visible -->
-    <div class="nroTrabajo">N° <span id="t-nro"></span></div>
-  </div>
-</header>
+        <!-- Logo -->
+        <img class="logo" src="logo.png" alt="Óptica Cristal">
+        <div class="brand">
+          <h1>ÓPTICA CRISTAL</h1>
+          <div class="sub">San Miguel v4</div>
+          <!-- NUEVO: número de trabajo visible -->
+          <div class="nroTrabajo">N° <span id="t-nro"></span></div>
+        </div>
+      </header>
 
       <div class="row two">
         <label>Fecha que encarga <input id="t-fecha-encarga" disabled></label>
